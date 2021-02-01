@@ -21,10 +21,10 @@ namespace miniShop.Controllers
             this.service = service;
         }
 
-        public IActionResult Index(int page=1)
+        public IActionResult Index(int page=1, int catID=0)
         {
             var pageSize = 4;
-            var products = service.GetProducts();
+            var products = catID == 0 ? service.GetProducts() : service.GetProductsByCategoryID(catID);
 
             var pagingProducts = products.OrderBy(p => p.ID)
                                          .Skip((page-1)*pageSize)
@@ -36,6 +36,7 @@ namespace miniShop.Controllers
              * 4. sayfa: 12 atla 4 göster
              */
 
+            ViewBag.CatID = catID;
 
             var totalProduct = products.Count;
             var totalPage = Math.Ceiling((decimal)totalProduct / pageSize);

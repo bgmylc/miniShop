@@ -1,0 +1,17 @@
+Repository Pattern
+
+Bir proje oluştururken, projemiz birçok katmandan oluşur. Özellikle veri tabanımızda çok fazla tablo olabilir. 
+Tablolarımızın ortak kullandığı metotlar olabilir, bu metotları her seferinde baştan yazmak hem kod kirliliği oluşturur, 
+hem takibi zorlaştırır. Repository Pattern de bunun için kullanılır.
+
+Repository Pattern kullanarak belli metotlara erişimi tek bir yerden sağlarız. Ortak kullanılan metotlar için 
+önce bir Interface oluşturulur. Daha sonra bu Interface, onu kullanacak sınıfa bağlanır. Bu metotları kullanacak sınıflar 
+binlerce olsa bile tekrar metot yazılması gerekmez. Buna şöyle bir örnek verebiliriz. Ben ve arkadaşım kardeşim yapacağız; 
+ikimizin de her ihtiyacımız olduğunda yeni bir boya alması mı daha mantıklıdır, yoksa boyaları baştan toplayıp ortak kullanmamız mı? 
+Repository Pattern de aynı bu mantıkta çalışır.
+
+Bunu basit bir dükkan uygulamasında düşünecek olursak, bir ürün tablomuz olduğunu düşünelim. Bu tablomuz için CRUD 
+(Create, Update, Delete) işlemlerini gerçekleştirebiliriz. Bunun için bir IProduct arayüzü (interface) tanımlayabiliriz. 
+Bu arayüzü implement edecek ProductRepository sınıfı oluşturulduğunda artık ekstra kod yazmamıza gerek olmayacaktır. 
+Bu sınıf işlemlerini IProduct üzerinden çekecektir. Artık yeni bir metot gerektiğinde bile bunu sadece IProduct kısmından ekleyip, 
+ProductRepository sınıfında uygulayacağız.

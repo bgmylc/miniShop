@@ -7,6 +7,11 @@ namespace miniShop.Models.Services
 {
     public class FakeProductService : IProductService
     {
+        public void AddProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Product> GetProducts()
         {
             return new List<Product>
@@ -32,18 +37,9 @@ namespace miniShop.Models.Services
 
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public List<Product> GetProductsByCategoryID(int categoryID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
